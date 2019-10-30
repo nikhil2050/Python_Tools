@@ -1,7 +1,7 @@
 import json, re
 from junit_xml import TestSuite, TestCase
 
-with open('retire_result_8.json') as f:
+with open('retire_result_32.json') as f:
     json_data = json.load(f)
 
 failure_body = ''
@@ -10,8 +10,11 @@ for file_element in json_data['data'] :
     #print(json.dumps(file_element, indent = 4, sort_keys=False),"\n------------")
     file_name = file_element['file']
     print(file_name,"\n----")
+    count = 0
     for result_element in file_element['results'] :
         print('result_element :: ',result_element)
+        print('count ::',count)
+        count +=1
 	#print('result_element[4] :: ',result_element[4])
         #print('vulnerabilities :: ',result_element[vulnerabilities])
         for vulnerability_ele in result_element["vulnerabilities"]:
